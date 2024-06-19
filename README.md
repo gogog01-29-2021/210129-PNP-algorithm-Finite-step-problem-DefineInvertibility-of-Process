@@ -1,4 +1,4 @@
-백준1929 1.Order of if statement
+백준1929 1.Order of if statement 2.else?  3.when to introduce list and inumerative forloops
 #include <stdio.h>
 #include <stdbool.h>
 
