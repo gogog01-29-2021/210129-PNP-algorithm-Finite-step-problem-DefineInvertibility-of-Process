@@ -1,9 +1,39 @@
-# gogogo01-29-2021
-!:!Let there be light
+백준1929 1.Order of if statement
+#include <stdio.h>
+#include <stdbool.h>
 
+bool Prim(int i) {
+    if(i>=3){
+        for(int j=3;j<i;j++){
+            if(i%j==0){
+                return false;
+                break;
+            }
 
-Pohangkim's Github profile!
+            }else{
+         return true;
+        }
+    }
+     if(i<=1){
+            return false;
 
-[<img src="h
-[![Facebook Badge](https://img.shields.io/badge/-Facebook-1877f2?style=flat-square&logo=facebook&logoColor=white&link=https://www.facebook.com/jangej1031/)](https://www.facebook.com/jangej1031/)
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-d14836?style=flat-square&logo=Gmail&logoColor=white&link=mailto:ironwar0000naver.com)](mailto:ironwar0000@naver.com)
+        }
+     if (i==2){
+             return true;
+              }
+}
+
+int main(){
+    int a=0;
+    int b=0;
+    scanf("%d %d",&a,&b);
+    for(int i=a;i<b;i++){
+        if(Prim(i)==1){
+            printf("%d",i);
+        }
+        else{
+            continue;
+        }
+    }
+    return 0;
+}
