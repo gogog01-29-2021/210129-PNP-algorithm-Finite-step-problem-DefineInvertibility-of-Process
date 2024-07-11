@@ -1,4 +1,5 @@
 240711
+By multiplying matrix, changing innerproducts's Caucality(Conditinal probability) and RMS prop.cpp(und RMS prop API)'s relation (und ARIMA, GARCH)
 Hyperbolic space code representation to apply on Stock, Bond price & Volatility forecasting
 
 백준1929 1.Order of if statement 2.else?  3.when to introduce list and inumerative forloops
