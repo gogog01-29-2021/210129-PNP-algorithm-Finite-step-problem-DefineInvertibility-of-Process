@@ -1,0 +1,31 @@
+h,w=map(int,input().split())
+maze=[]
+for i in range(h):
+    maze.append(input())#maze.append(list(map(int,input().split())))
+visit=[[0 for i in range(w)]for i in range(h)]
+q=[]
+for i in range(h):
+    for j in range(w):
+        if maze[i][j]=='2':
+            sh,sw=i,j
+            break            
+q.append([sh,sw])
+visit[sh][sw]=1
+while q:
+    low,col=q.pop(0)
+    l=[1,-1,0,0]
+    c=[0,0,1,-1]
+    for i in range(4):
+        nl=low+l[i]
+        nc=col+c[i]
+        if 0<=nl<h and 0<=nc<w and visit[nl][nc]==0 and maze[nl][nc]=="1":
+            q.append([nl,nc])
+            visit[nl][nc]=visit[low][col]+1
+            
+for i in range(h):
+    for j in range(w):
+        if maze[i][j]=='0':
+            print(0,end=" ")
+        else:
+            print(visit[i][j]-1,end=" ")
+    print()
