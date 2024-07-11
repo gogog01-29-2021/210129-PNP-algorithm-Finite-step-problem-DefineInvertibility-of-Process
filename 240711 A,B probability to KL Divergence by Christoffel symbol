@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Divergence, Christoffel Symbols, and Type I/II Errors}
+
+\subsection*{Christoffel Symbols and Divergence}
+
+The Fisher information metric \( g_{ij} \) is given by:
+\[
+g_{ij} = \mathbb{E} \left[ \left( \frac{\partial \log L(X; \theta)}{\partial \theta^i} \right) \left( \frac{\partial \log L(X; \theta)}{\partial \theta^j} \right) \right]
+\]
+
+The Christoffel symbols \(\Gamma^k_{ij}\) are:
+\[
+\Gamma^k_{ij} = \frac{1}{2} g^{kl} \left( \frac{\partial g_{il}}{\partial \theta^j} + \frac{\partial g_{jl}}{\partial \theta^i} - \frac{\partial g_{ij}}{\partial \theta^l} \right)
+\]
+
+\subsection*{KL Divergence and Hypothesis Testing}
+
+The KL divergence \( D_{KL}(P \| Q) \) is given by:
+\[
+D_{KL}(P \| Q) = \sum_i P_i \log \frac{P_i}{Q_i}
+\]
+
+\subsection*{Type I and Type II Errors}
+
+- **Type I Error (\(\alpha\))**: Probability of rejecting \(H_0\) when it is true.
+- **Type II Error (\(\beta\))**: Probability of failing to reject \(H_0\) when it is false.
+
+As \( D_{KL}(P \| Q) \) increases:
+\begin{itemize}
+    \item \(\alpha\) decreases (lower Type I error)
+    \item \(\beta\) decreases (lower Type II error)
+\end{itemize}
+
+\end{document}
