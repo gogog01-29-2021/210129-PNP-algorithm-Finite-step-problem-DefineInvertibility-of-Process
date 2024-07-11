@@ -1,3 +1,27 @@
 -> marks the return function annotation
 
 .split() makes list
+
+Iterator Iterable __next__, Collection/Sequence Type
+maze=[]
+maze.append(list(list(list(input()))))
+print(maze)
+
+maze1=[]
+maze1.append(input())
+print(maze1)
+
+maze1=[]
+maze1.append(int(input()))
+print(maze1)
+
+maze1=[]
+maze1.append(list(int(input())))
+print(maze1)
+
+class Temp:
+    def __init__(self):
+        pass
+    def __iter__(self,start,end):
+        pass
+print(isinstance(Temp(),iterable))
