@@ -1,3 +1,9 @@
+240713
+ torch.nn nn.(Conv2d, BatchNorm2d,ReLU,Flattern,Linear)    in .cpp
+Glitch package.json apt-get install nodejs enable-npm. unixcommand=>npm init      npm install      npm start     
+const=[]  
+
+
 240711
 By multiplying matrix, changing innerproducts's Caucality(Conditinal probability) and RMS prop.cpp(und RMS prop API)'s relation (und ARIMA, GARCH)
 Hyperbolic space code representation to apply on Stock, Bond price & Volatility forecasting
