@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+const long long MOD=1e9+7;
+long long exp(long long x,long long n,long long m){
+    x%=m;
+    long long res=1;
+    while(n>0){
+        if(n%2==1){
+            res=res*x%m;
+        }
+        x=x*x%m;
+        n/=2;
+    }
+    return res;
+}
+
+long long cof(int n, int k) {
+    long long multiple=1;
+    for(int i=n;i>=n-k+1;i--){
+        multiple=multiple*i%MOD;
+    }
+    long long diviple=1;
+    for(int j=1;j<=k;j++){
+        diviple=diviple*j%MOD;
+    }
+    long long inv=exp(diviple,MOD-2,MOD);
+    multiple=multiple*inv%MOD;
+    return multiple;
+}
+
+int main() {
+	// your code goes here
+int t;
+scanf("%d",&t);
+while(t--){
+    int n,k;
+    scanf("%d %d",&n,&k);
+    printf("%lld\n",cof(n,k));
+}
+}
