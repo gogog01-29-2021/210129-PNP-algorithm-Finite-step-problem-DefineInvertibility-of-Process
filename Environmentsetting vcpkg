@@ -4,3 +4,7 @@
 3.cmd.exe /c bootstrap-vcpkg.bat
 4.환경변수 path  C:\Users\user\vcpkg>
 5.vcpkg integrate install
+
+
+6. vcpkg install dlib:x64-windows
+7. vcpkg install opencv:x64-windows
