@@ -1,0 +1,6 @@
+0. https://cheongpark.tistory.com/15
+1.git clone http://github.com/Microsoft/vcpkg.git
+2.
+3.cmd.exe /c bootstrap-vcpkg.bat
+4.환경변수 path  C:\Users\user\vcpkg>
+5.vcpkg integrate install
