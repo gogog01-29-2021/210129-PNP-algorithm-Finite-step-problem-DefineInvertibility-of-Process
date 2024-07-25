@@ -1,0 +1,5 @@
+1. zedsdk
+2. python -m pip install cython numpy opencv-python pyopengl
+
+
+1..$ cd "C:\Program Files (x86)\ZED SDK"
