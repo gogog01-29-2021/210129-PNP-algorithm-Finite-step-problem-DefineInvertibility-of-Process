@@ -1,0 +1,35 @@
+1. return a.first>b.first;
+sort( , , compare1) 
+sort by
+A. >
+B. true false
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <stdio.h>
+
+using namespace std;
+
+vector<pair<int, int>> v;
+
+// Custom comparison function to sort pairs in descending order by first element
+bool compare1(pair<int, int> a, pair<int, int> b) {
+    return a.first > b.first;
+}
+
+int main() {
+    v.push_back(make_pair(1, 5));
+    v.push_back(make_pair(5, 4));
+    v.push_back(make_pair(2, 3));
+    v.push_back(make_pair(7, 2));
+    v.push_back(make_pair(5, 1));
+
+    // Sort the vector using the custom comparison function
+    sort(v.begin(), v.end(), compare1);
+
+    // Print the sorted vector
+    for (int i = 0; i < v.size(); i++)
+        printf("%d %d\n", v[i].first, v[i].second);
+
+    return 0;
+}
