@@ -1,3 +1,9 @@
+20241013
+Problem Formulation
+Solution Algorithm Formulatiion
+Algorithm with full Implementation
+Algorihtm with partial Implemntation
+
 240713
  torch.nn nn.(Conv2d, BatchNorm2d,ReLU,Flattern,Linear)    in .cpp
 Glitch package.json apt-get install nodejs enable-npm. unixcommand=>npm init      npm install      npm start     
