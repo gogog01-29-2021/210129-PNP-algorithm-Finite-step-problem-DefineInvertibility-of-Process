@@ -1,7 +1,7 @@
 20241013
 Problem Formulation
 Solution Algorithm Formulatiion
-Algorithm with full Implementation
+Not 1 to 1 Algorithm with full Implementation
 Algorihtm with partial Implemntation
 
 240713
