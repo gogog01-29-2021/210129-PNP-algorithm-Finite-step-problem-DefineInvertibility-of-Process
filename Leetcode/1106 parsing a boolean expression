@@ -1,0 +1,17 @@
+class Solution {
+    public boolean parseBoolExpr(String expression) {
+        #if there is & or |{
+            
+        }
+
+        #Prior or from the back?
+        
+        String a='';
+        String b='';
+        ;
+        ;
+        ;
+    }
+}
+
+
