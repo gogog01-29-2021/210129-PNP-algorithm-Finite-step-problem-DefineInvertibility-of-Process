@@ -1,0 +1,34 @@
+#Given an integer n, return all the structurally unique BST's (binary search trees), which has exactly n nodes of unique values from 1 to n. 
+#answer in given order .. in any order.
+#
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<TreeNode> generateTrees(int n) {
+        publist static int[] bfs(int n){
+
+        }
+                publist static int[] inorder(int n){
+
+        }
+                publist static int[] preorder(int n){
+
+        }
+                publist static int[] postorder(int n){
+
+        }        
+    }
+}
