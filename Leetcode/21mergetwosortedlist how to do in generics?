@@ -1,0 +1,29 @@
+#How can we do in generics?
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+      if(ListNode list1==null){
+        return ListNode list2;
+      }
+      if(ListNode list2==null){
+        return ListNode list1;
+      }
+      if(list2.data<list1.data){
+        return list2.data;
+      }
+      else{
+        list1.data;
+      }
+      
+    }
+    
+}
