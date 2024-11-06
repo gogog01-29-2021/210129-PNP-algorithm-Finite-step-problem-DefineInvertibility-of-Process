@@ -1,0 +1,136 @@
+241106
+SinglyLinkedListNode current=llist;
+
+#SinglyLinkedList in c
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct SinglyLinkedListNode {
+    int data;
+    struct SinglyLinkedListNode* next;
+} SinglyLinkedListNode;
+
+void reversePrint(SinglyLinkedListNode* llist) {
+    SinglyLinkedListNode* current = llist;  // Assign llist pointer to current
+    // Now you can use `current` to traverse without modifying `llist`
+
+    // Traverse the list and push data onto a stack (simulated here as array for simplicity)
+    int stack[100];  // Static stack for demonstration
+    int top = -1;
+
+    while (current != NULL) {
+        stack[++top] = current->data;  // Push data onto the stack
+        current = current->next;       // Move to the next node
+    }
+
+    // Pop from stack to print in reverse order
+    while (top >= 0) {
+        printf("%d\n", stack[top--]);
+    }
+}
+
+// Helper function to create a new node
+SinglyLinkedListNode* createNode(int data) {
+    SinglyLinkedListNode* newNode = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
+}
+
+int main() {
+    SinglyLinkedListNode* head = createNode(1);
+    head->next = createNode(2);
+    head->next->next = createNode(3);
+
+    reversePrint(head);  // Call reversePrint with head pointer
+
+    return 0;
+}
+
+#SinglyLinkedList in c++
+#include <iostream>
+#include <stack>
+
+struct SinglyLinkedListNode {
+    int data;
+    SinglyLinkedListNode* next;
+
+    SinglyLinkedListNode(int data) : data(data), next(nullptr) {}
+};
+
+void reversePrint(SinglyLinkedListNode* llist) {
+    SinglyLinkedListNode* current = llist;  // Assign llist pointer to current
+    std::stack<int> stack;
+
+    // Traverse the linked list and push data onto the stack
+    while (current != nullptr) {
+        stack.push(current->data);  // Push data onto the stack
+        current = current->next;    // Move to the next node
+    }
+
+    // Pop from stack to print in reverse order
+    while (!stack.empty()) {
+        std::cout << stack.top() << std::endl;
+        stack.pop();
+    }
+}
+
+// Helper function to create a new node
+SinglyLinkedListNode* createNode(int data) {
+    return new SinglyLinkedListNode(data);
+}
+
+int main() {
+    SinglyLinkedListNode* head = createNode(1);
+    head->next = createNode(2);
+    head->next->next = createNode(3);
+
+    reversePrint(head);  // Call reversePrint with head pointer
+
+    return 0;
+}
+
+#SinglyLinkedList in Rust
+use std::rc::Rc;
+use std::cell::RefCell;
+
+struct ListNode {
+    data: i32,
+    next: Option<Rc<RefCell<ListNode>>>,
+}
+
+fn reverse_print(head: Option<Rc<RefCell<ListNode>>>) {
+    let mut stack = Vec::new();
+    let mut current = head.clone();  // Clone the reference to avoid taking ownership
+
+    // Traverse the linked list and push data onto the stack
+    while let Some(node) = current {
+        stack.push(node.borrow().data);
+        current = node.borrow().next.clone();
+    }
+
+    // Print in reverse order
+    while let Some(data) = stack.pop() {
+        println!("{}", data);
+    }
+}
+
+// Helper function to create a new node
+fn create_node(data: i32) -> Option<Rc<RefCell<ListNode>>> {
+    Some(Rc::new(RefCell::new(ListNode { data, next: None })))
+}
+
+fn main() {
+    let head = create_node(1);
+    let second = create_node(2);
+    let third = create_node(3);
+
+    if let Some(ref h) = head {
+        h.borrow_mut().next = second.clone();
+    }
+    if let Some(ref s) = second {
+        s.borrow_mut().next = third.clone();
+    }
+
+    reverse_print(head);  // Call reverse_print with the head
+}
