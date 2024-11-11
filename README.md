@@ -1,3 +1,10 @@
+
+
+
+Atcoder
+https://atcoder.jp/contests/abc376/tasks/abc376_a Candy
+
+
 20241013
 Problem Formulation
 Solution Algorithm Formulatiion
