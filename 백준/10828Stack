@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main{  //https://github.com/TheAlgorithms/Java/tree/master/src/main/java/com/thealgorithms/datastructures/hashmap
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String dict_a[]={"push", "pop", "top", "size", "empty"};
+        ArrayList<Integer> list_a=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            String a=sc.next();
+            if(a.equals("push")) {
+                int b = sc.nextInt();
+                list_a.add(0,b);
+                System.out.println("PUSH"+b);
+            }
+
+            if(a.equals("pop")&& !list_a.isEmpty()){
+                System.out.println("REMOVE"+list_a.get(0));
+                list_a.remove(0);
+            }
+            else if(a.equals("pop")&&list_a.size()==0){
+                System.out.println("POP"+-1);
+            }
+            if(a.equals("size")){
+                //for
+                System.out.println(list_a.size()+"size");
+            }
+            if(a.equals("empty")){
+                if(list_a.size()==0){
+                    System.out.println(1+"Empty");
+                }else{
+                    System.out.println(0+"Not Empty");
+                }
+            }
+            if(a.equals("top")){
+                if(list_a.size()!=0){
+                    System.out.println(list_a.get(0)+"OUr top is");
+                }else{
+                    System.out.println(-1+"Top not exist");
+                }
+            }
+        }
+    }
+}
+
+//2
+//2
+//0
+//2
+//1
+// pop problem on third pop there is no element so it should be -1
+//size 0        why -1 cameout?
+//empty 1
+//pop -1
+// empty 0
+//top3
