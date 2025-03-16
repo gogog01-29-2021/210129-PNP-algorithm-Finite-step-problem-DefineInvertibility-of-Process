@@ -1,0 +1,57 @@
+//비전 중심의 End-to-End 자율주행 시스템, 언어-비전 멀티모달 모델 연구를 중점적으로 진행하고 있고, 그 외에도 딥페이크 탐지, 생성 모델, 로우-레벨 비전 등 다양한 컴퓨터 문제들을 연구하고 있습니다. 
+//BOJ2493 Tower
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.*;
+import java.util.*;
+class TreeNode{
+    int val;
+    TreeNode left,right;
+    TreeNode(int item){
+        val=item;
+        left=right=null;
+    }
+}
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        Solution tree = new Solution();
+        int n = sc.nextInt();
+        ArrayList<Integer> list_a = new ArrayList<Integer>();
+        for (int i = 0; i < n; i++) {
+            int val = sc.next();
+            tree.root = tree.insert(tree.root, val);
+        }
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        TreeNode lca = tree.lca(tree.root, a, b);
+        System.out.println(lcaNode.val);
+    }
+
+    public TreeNode insert(TreeNode root, int val) {
+        if (root == null) {
+            return new TreeNode(val);
+        }
+        if (val < root.val) {
+            root.left = insert(root.left, val);
+        } else if (val > root.val) {
+            root.right = insert(root.right, val);
+        }
+        return root;
+    }
+
+    public TreeNode lca(TreeNode node, int a, int b) {
+        if (node == null) {
+            return null;
+        }
+        if (node.val > a && node.val > b) {
+            return lca(node.left, a, b);
+        }
+        if (node.val < a && node.val < b) {
+            return lca(node.right, a, b);
+        }
+        return node;
+    }
+}
