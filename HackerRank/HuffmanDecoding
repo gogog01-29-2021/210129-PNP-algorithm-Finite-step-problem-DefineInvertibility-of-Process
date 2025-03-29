@@ -1,0 +1,55 @@
+//1. construc huffman encoding
+//2.
+//3.application to ML?
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String t=sc.next();
+        System.out.println(searchTree(t));
+    }
+    public static String searchTree(string t,Node root) {
+        if (t.length() == '0') {
+            return "";
+        }
+        Node current = root;
+        for (int i = 0; i < t.size; i++) {
+            current = s.charAt(i) == '0' ? current.left : current.right;
+            if (current.isLeaf()) {
+                System.out.println(current.data);
+                current = root;
+            }
+        }
+        System.out.println();
+    }
+            if(t.chatAt(i)=='1'){
+                if(t.left!=null)t.left=tree.data;
+                else{
+
+                }
+            }
+            else{
+
+            }
+//t.left
+            //t.right
+        }
+    }
+void decode(String S, Node root)
+{
+    StringBuilder output = new StringBuilder();
+    Node c = root;
+    for (int i = 0; i < S.length(); i++) {
+        c = S.charAt(i) == '1' ? c.right : c.left;
+        if (c.left == null && c.right == null) {
+            output.append(c.data);
+            c = root;
+        }
+    }
+    System.out.print(output);
+}
+}
