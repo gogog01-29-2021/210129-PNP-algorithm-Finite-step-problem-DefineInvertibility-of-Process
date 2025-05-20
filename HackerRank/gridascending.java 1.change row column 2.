@@ -1,0 +1,75 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+//https://www.hackerrank.com/challenges/grid-challenge/problem?isFullScreen=true$0
+class Result {
+   public static String gridChallenge(List<String> grid) {
+        char[][] charGrid=new char[grid.size()][grid.get(0).length()];//[row][column]?
+        for(int i=0;i<grid.get(i).length();i++){// 
+            char[] row=grid.get(i).toCharArray(); // 0  1 2 
+            Arrays.sort(row); //aae //bdf //ceg 
+            for(int j=0;j<grid.get(0).length();j++){
+                charGrid[i][j]=row[j];//0.123   //charGrid[i][j]=row[j]? //1 //2
+            }
+        }
+        // for(int i=0;i<charGrid.length;i++){
+        //     for(int j=0;j<charGrid[i].length;j++){
+        //         System.out.print(charGrid[i][j]);
+  
+        //     }
+        //     System.out.println();
+        // }
+        
+        for(int i=0;i<charGrid.length-1;i++){ //
+            for(int j=0;j<charGrid[i].length-1;j++){
+                if(charGrid[j][i]>charGrid[j+1][i]){
+                    return "NO";
+                }
+            }
+        }
+        return "YES";
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int t = Integer.parseInt(bufferedReader.readLine().trim());
+
+        IntStream.range(0, t).forEach(tItr -> {
+            try {
+                int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+                List<String> grid = IntStream.range(0, n).mapToObj(i -> {
+                    try {
+                        return bufferedReader.readLine();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                })
+                    .collect(toList());
+
+                String result = Result.gridChallenge(grid);
+
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
