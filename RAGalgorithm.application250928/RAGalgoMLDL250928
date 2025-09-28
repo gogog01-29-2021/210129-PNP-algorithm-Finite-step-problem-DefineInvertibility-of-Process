@@ -1,0 +1,47 @@
+A. Programming‑only
+
+index = build_inverted_index(docs)            # tokens → postings
+hits  = bm25_search(index, query, k=200)
+hits  = heuristic_rerank(hits, boost_title=True, recency=True)
+ctx   = topk(hits, k=8)
+answer = template_fill(ctx, query)            # or extractive summary(ctx)
+
+
+B. Classical ML (fixed features)
+
+X_docs = tfidf.fit_transform(corpus)
+q_vec  = tfidf.transform([query])
+cand   = topk_by_cosine(X_docs, q_vec, k=500)
+
+features = make_features(cand)                # bm25, tfidf_sim, len, recency, etc.
+scores   = lr_reranker.predict_proba(features)
+ctx      = select_topk(cand, scores, k=8)
+answer   = extractive_ranker(ctx, query)
+
+
+C. Modern AI (dense + LLM)
+
+E_docs = embed_biencoder(corpus)              # dense vectors
+ann    = faiss.index(E_docs)
+E_q    = embed_biencoder([query])
+cand   = ann.search(E_q, k=200)
+rerank = cross_encoder_score(query, cand)     # optional
+ctx    = choose_topk(cand, rerank, k=8)
+
+prompt = build_grounded_prompt(query, ctx)    # includes citations
+answer = llm.generate(prompt)
+
+For your YouTube Visual agent specifically
+
+Programming/ML: TF‑IDF on titles+descriptions+tags; BM25 first‑stage; template explanations with citations.
+
+AI: CLIP/OpenCLIP for thumbnail embeddings + text embeddings; ANN retrieval; LLM/VLM to fuse evidence; structured reasoning trace (citations + scores).
+
+Hybrid: BM25 union dense; re‑rank with a small cross‑encoder; LLM for final answer.
+
+| Stage      | Programming only                 | Classical ML (fixed feats)         | Modern AI (learned feats)                     |
+| ---------- | -------------------------------- | ---------------------------------- | --------------------------------------------- |
+| Retriever  | BM25 / keyword index             | TF‑IDF cosine → LR/GBDT re‑rank    | Dense bi‑encoder ANN → cross‑encoder re‑rank  |
+| Augmenter  | Heuristics (title boost, dedupe) | Heuristic + feature filters        | Semantic dedupe, query expansion, re‑chunking |
+| Generator  | Templates / extractive summaries | Extractive ranker; shallow seq2seq | LLM / VLM with grounded prompt + citations    |
+| Guardrails | Whitelists/regex                 | Feature‑based filters              | Claim‑checking, retrieval consistency checks  |
