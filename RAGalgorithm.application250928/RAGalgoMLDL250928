@@ -45,3 +45,12 @@ Hybrid: BM25 union dense; re‑rank with a small cross‑encoder; LLM for final 
 | Augmenter  | Heuristics (title boost, dedupe) | Heuristic + feature filters        | Semantic dedupe, query expansion, re‑chunking |
 | Generator  | Templates / extractive summaries | Extractive ranker; shallow seq2seq | LLM / VLM with grounded prompt + citations    |
 | Guardrails | Whitelists/regex                 | Feature‑based filters              | Claim‑checking, retrieval consistency checks  |
+
+
+
+
+Programming/ML: TF‑IDF on titles+descriptions+tags; BM25 first‑stage; template explanations with citations.
+
+AI: CLIP/OpenCLIP for thumbnail embeddings + text embeddings; ANN retrieval; LLM/VLM to fuse evidence; structured reasoning trace (citations + scores).
+
+Hybrid: BM25 union dense; re‑rank with a small cross‑encoder; LLM for final answer. 
